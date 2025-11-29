@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Titanium Trust Bank - Corporate Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Base Styles */
+        :root {
+            --navy-900: #0a192f;
+            --navy-800: #112240;
+            --gold-500: #64ffda;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-500: #6b7280;
+            --gray-700: #374151;
+            --white: #ffffff;
+            --green-50: #ecfdf5;
+            --green-600: #059669;
+            --red-50: #fef2f2;
+            --red-600: #dc2626;
+            --blue-50: #eff6ff;
+            --blue-600: #2563eb;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background-color: var(--gray-100);
+            overflow: hidden;
+        }
+
+        /* Utilities */
+        .flex {
+            display: flex;
+        }
+
+        .flex-col {
+            flex-direction: column;
+        }
+
+        .items-center {
+            align-items: center;
+        }
+
+        .justify-center {
+            justify-content: center;
+        }
+
+        .justify-between {
+            justify-content: space-between;
+        }
+
+        .gap-2 {
+            gap: 0.5rem;
+        }
+
+        .gap-3 {
+            gap: 0.75rem;
+        }
+
+        .gap-4 {
+            gap: 1rem;
+        }
+
+        .h-full {
+            height: 100%;
+
+        }
+
+        .w-full {
+            width: 100%;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .font-bold {
+            font-weight: 700;
+        }
+
+        .font-medium {
+            font-weight: 500;
+        }
+
+        .text-sm {
+            font-size: 0.875rem;
+        }
+
+        .text-xs {
+            font-size: 0.75rem;
+        }
+
+        .text-lg {
+            font-size: 1.125rem;
+        }
+
+        .text-xl {
+            font-size: 1.25rem;
+        }
+
+        .text-2xl {
+            font-size: 1.5rem;
+        }
+
+        .text-3xl {
+            font-size: 1.875rem;
+        }
+
+        .text-4xl {
+            font-size: 2.25rem;
+        }
+
+        .text-white {
+            color: white;
+        }
+
+        .text-gray-300 {
+            color: var(--gray-300);
+        }
+
+        .text-gray-500 {
+            color: var(--gray-500);
+        }
+
+        .text-gray-600 {
+            color: #4b5563;
+        }
+
+        .text-gray-800 {
+            color: #1f2937;
+        }
+
+        .text-gray-900 {
+            color: #111827;
+        }
+
+        .text-navy-900 {
+            color: var(--navy-900);
+        }
+
+        .text-gold-500 {
+            color: var(--gold-500);
+        }
+
+        .text-green-600 {
+            color: var(--green-600);
+        }
+
+        .text-red-600 {
+            color: var(--red-600);
+        }
+
+        .text-blue-600 {
+            color: var(--blue-600);
+        }
+
+        .overflow-hidden {
+            overflow: hidden;
+        }
+
+        .overflow-y-auto {
+            overflow-y: auto;
+        }
+
+        .relative {
+            position: relative;
+        }
+
+        .absolute {
+            position: absolute;
+        }
+
+        .inset-0 {
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+
+        .z-10 {
+            z-index: 10;
+        }
+
+        .p-2 {
+            padding: 0.5rem;
+        }
+
+        .p-4 {
+            padding: 1rem;
+        }
+
+        .p-6 {
+            padding: 1.5rem;
+        }
+
+        .p-8 {
+            padding: 2rem;
+        }
+
+        .p-12 {
+            padding: 3rem;
+        }
+
+        .px-4 {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        .px-8 {
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+
+        .py-3 {
+            padding-top: 0.75rem;
+            padding-bottom: 0.75rem;
+        }
+
+        .py-4 {
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+
+        .mb-1 {
+            margin-bottom: 0.25rem;
+        }
+
+        .mb-2 {
+            margin-bottom: 0.5rem;
+        }
+
+        .mb-4 {
+            margin-bottom: 1rem;
+        }
+
+        .mb-6 {
+            margin-bottom: 1.5rem;
+        }
+
+        .mb-8 {
+            margin-bottom: 2rem;
+        }
+
+        .mt-2 {
+            margin-top: 0.5rem;
+        }
+
+        .mt-6 {
+            margin-top: 1.5rem;
+        }
+
+        .mt-8 {
+            margin-top: 2rem;
+        }
+
+        .mx-auto {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .w-16 {
+            width: 4rem;
+        }
+
+        .h-16 {
+            height: 4rem;
+        }
+
+        .w-10 {
+            width: 2.5rem;
+        }
+
+        .h-10 {
+            height: 2.5rem;
+        }
+
+        .w-8 {
+            width: 2rem;
+        }
+
+        .h-8 {
+            height: 2rem;
+        }
+
+        .sticky {
+            position: sticky;
+        }
+
+        .top-0 {
+            top: 0;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .grid {
+            display: grid;
+        }
+
+        .lg\:grid-cols-3 {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1.5rem;
+        }
+
+        .lg\:col-span-2 {
+            grid-column: span 2;
+        }
+
+        .space-y-6>*+* {
+            margin-top: 1.5rem;
+        }
+
+        /* Specific Styles */
+        .bg-navy-900 {
+            background-color: var(--navy-900);
+        }
+
+        .bg-navy-800 {
+            background-color: var(--navy-800);
+        }
+
+        .bg-white {
+            background-color: var(--white);
+        }
+
+        .bg-gray-100 {
+            background-color: var(--gray-100);
+        }
+
+        .bg-green-50 {
+            background-color: var(--green-50);
+        }
+
+        .bg-green-100 {
+            background-color: #d1fae5;
+        }
+
+        .bg-red-50 {
+            background-color: var(--red-50);
+        }
+
+        .bg-blue-50 {
+            background-color: var(--blue-50);
+        }
+
+        .bg-gold-500 {
+            background-color: var(--gold-500);
+        }
+
+        .bg-white\/10 {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .backdrop-blur-sm {
+            backdrop-filter: blur(4px);
+        }
+
+        .rounded {
+            border-radius: 0.25rem;
+        }
+
+        .rounded-lg {
+            border-radius: 0.5rem;
+        }
+
+        .rounded-xl {
+            border-radius: 0.75rem;
+        }
+
+        .rounded-full {
+            border-radius: 9999px;
+        }
+
+        .shadow-sm {
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+        }
+
+        .border {
+            border-width: 1px;
+            border-style: solid;
+        }
+
+        .border-b {
+            border-bottom-width: 1px;
+            border-bottom-style: solid;
+        }
+
+        .border-t {
+            border-top-width: 1px;
+            border-top-style: solid;
+        }
+
+        .border-gray-200 {
+            border-color: var(--gray-200);
+        }
+
+        .border-gray-100 {
+            border-color: #f3f4f6;
+        }
+
+        .border-navy-800 {
+            border-color: var(--navy-800);
+        }
+
+        /* Input Group */
+        .input-group {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid var(--gray-200);
+            border-radius: 0.5rem;
+            outline: none;
+            transition: all 0.3s;
+            font-size: 1rem;
+        }
+
+        .input-group input:focus {
+            border-color: var(--navy-900);
+            box-shadow: 0 0 0 2px rgba(10, 25, 47, 0.1);
+        }
+
+        .input-group label {
+            position: absolute;
+            left: 1rem;
+            top: 1rem;
+            color: var(--gray-500);
+            transition: all 0.3s;
+            pointer-events: none;
+            font-size: 1rem;
+        }
+
+        .input-group input:focus~label,
+        .input-group input:not(:placeholder-shown)~label {
+            top: -0.5rem;
+            left: 0.8rem;
+            font-size: 0.75rem;
+            background: white;
+            padding: 0 0.25rem;
+            color: var(--navy-900);
+        }
+
+        /* Buttons */
+        button {
+            cursor: pointer;
+            border: none;
+            font-family: inherit;
+        }
+
+        .btn-primary {
+            background-color: var(--navy-900);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: background-color 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            width: 100%;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--navy-800);
+        }
+
+        .btn-secondary {
+            background-color: white;
+            border: 1px solid var(--gray-300);
+            color: var(--gray-700);
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 500;
+            transition: background-color 0.2s;
+            width: 100%;
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--gray-50);
+        }
+
+        /* Sidebar Links */
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            color: var(--gray-300);
+            text-decoration: none;
+            transition: background-color 0.2s;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            background-color: var(--navy-800);
+            color: white;
+        }
+
+        /* Form Elements */
+        input[type="text"],
+        input[type="password"],
+        input[type="number"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--gray-300);
+            border-radius: 0.5rem;
+            outline: none;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: var(--navy-900);
+            box-shadow: 0 0 0 2px rgba(10, 25, 47, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--gray-700);
+        }
+
+        /* Modal */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(4px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 50;
+        }
+
+        .modal-content {
+            background-color: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            max-width: 24rem;
+            width: 100%;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+
+        /* Icons */
+        .icon {
+            width: 1.25rem;
+            height: 1.25rem;
+        }
+
+        .icon-lg {
+            width: 1.5rem;
+            height: 1.5rem;
+        }
+
+        .icon-xl {
+            width: 3rem;
+            height: 3rem;
+        }
+
+        /* Balance Card */
+        .balance-card {
+            background: linear-gradient(to right, var(--navy-900), var(--navy-800));
+            color: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .balance-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 100%;
+            width: 50%;
+            background-color: white;
+            opacity: 0.05;
+            transform: skewX(12deg) translateX(3rem);
+        }
+
+        /* Grid System */
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .col-span-2 {
+            grid-column: span 2;
+        }
+
+        @media (max-width: 640px) {
+            .hidden.lg\:flex {
+                display: none;
+            }
+
+            .w-full.lg\:w-1\/2 {
+                width: 100%;
+            }
+
+            .grid.lg\:grid-cols-3 {
+                grid-template-columns: 1fr;
+            }
+
+            .lg\:col-span-2 {
+                grid-column: span 1;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .col-span-2 {
+                grid-column: span 1;
+            }
+        }
+
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .animate-spin {
+            animation: spin 1s linear infinite;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- LOGIN SCREEN -->
+    <div id="loginScreen" class="flex h-full w-full">
+        <!-- Left Side: Branding -->
+        <div class="hidden lg:flex lg:w-1/2 bg-navy-900 relative items-center justify-center overflow-hidden">
+            <div class="absolute inset-0"
+                style="background-image: url('https://images.unsplash.com/photo-1565514020176-dbf2277f18f3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80'); background-size: cover; background-position: center; opacity: 0.2;">
+            </div>
+            <div class="relative z-10 text-center text-white p-12">
+                <div class="mb-6"
+                    style="display: inline-block; padding: 1rem; border-radius: 9999px; border: 2px solid var(--gold-500);">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon-xl text-gold-500" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </div>
+                <h1 class="text-4xl font-bold mb-4">Titanium Trust Bank</h1>
+                <p class="text-gray-300 text-lg" style="max-width: 28rem; margin: 0 auto;">Secure. Global.
+                    Instant.<br>The future of corporate treasury management.</p>
+            </div>
+        </div>
+
+        <!-- Right Side: Login Form -->
+        <div class="w-full lg:w-1/2 flex items-center justify-center p-8 bg-white">
+            <div class="w-full" style="max-width: 28rem;">
+                <div class="mb-8 text-center lg:text-left" style="text-align: left;">
+                    <h2 class="text-3xl font-bold text-navy-900">Welcome Back</h2>
+                    <p class="text-gray-500 mt-2">Please sign in to your corporate account.</p>
+                </div>
+
+                <form id="loginForm" onsubmit="handleLogin(event)">
+                    <div class="input-group">
+                        <input type="text" id="username" placeholder=" " required>
+                        <label for="username">Corporate ID</label>
+                    </div>
+                    <div class="input-group">
+                        <input type="password" id="password" placeholder=" " required>
+                        <label for="password">Password</label>
+                    </div>
+
+                    <div class="flex items-center justify-between mb-6">
+                        <label class="flex items-center" style="display: flex; gap: 0.5rem; margin-bottom: 0;">
+                            <input type="checkbox" style="width: auto;">
+                            <span class="text-sm text-gray-600">Remember me</span>
+                        </label>
+                        <a href="#" class="text-sm text-navy-900 font-medium" style="text-decoration: none;">Forgot
+                            Password?</a>
+                    </div>
+
+                    <button type="submit" id="loginBtn" class="btn-primary">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+                        </svg>
+                        Sign In
+                    </button>
+                </form>
+
+                <div class="mt-8 flex items-center justify-center gap-2 text-sm text-green-600 bg-green-50 py-3 rounded-full w-full border border-green-100"
+                    style="width: fit-content; margin-left: auto; margin-right: auto; padding-left: 1rem; padding-right: 1rem;">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd"
+                            d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                            clip-rule="evenodd" />
+                    </svg>
+                    256-bit SSL Secure Connection
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DASHBOARD SCREEN -->
+    <div id="dashboardScreen" class="hidden h-full flex bg-gray-100">
+        <!-- Sidebar -->
+        <aside class="bg-navy-900 text-gray-300 flex flex-col" style="width: 16rem;">
+            <div class="p-6 border-b border-navy-800 flex items-center gap-3">
+                <div class="p-2 rounded bg-gold-500 text-navy-900"
+                    style="display: flex; align-items: center; justify-content: center;">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon-lg" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </div>
+                <span class="font-bold text-white text-lg">Titanium</span>
+            </div>
+            <nav class="flex-1 p-4" style="display: flex; flex-direction: column; gap: 0.5rem;">
+                <a href="#" class="nav-link active">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+                    </svg>
+                    Transfers
+                </a>
+                <a href="#" class="nav-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                    </svg>
+                    Accounts
+                </a>
+                <a href="#" class="nav-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    Approvals
+                </a>
+            </nav>
+            <div class="p-4 border-t border-navy-800">
+                <button onclick="location.reload()" class="nav-link"
+                    style="width: 100%; background: none; border: none; cursor: pointer;">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                    </svg>
+                    Sign Out
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 overflow-y-auto">
+            <!-- Header -->
+            <header
+                class="bg-white border-b border-gray-200 px-8 py-4 flex justify-between items-center sticky top-0 z-10">
+                <h2 class="text-xl font-bold text-gray-800">Fund Transfer</h2>
+                <div class="flex items-center gap-4">
+                    <div class="text-right">
+                        <p class="text-sm font-medium text-gray-900">Admin User</p>
+                        <p class="text-xs text-gray-500">Last login: Today, 09:41 AM</p>
+                    </div>
+                    <div class="h-10 w-10 rounded-full bg-navy-900 text-white flex items-center justify-center font-bold"
+                        style="height: 2.5rem; width: 2.5rem;">
+                        AU
+                    </div>
+                </div>
+            </header>
+
+            <div class="container">
+                <!-- Balance Card -->
+                <div class="balance-card mb-6">
+                    <p class="text-gray-400 text-sm font-medium mb-1">Available Balance</p>
+                    <h3 class="text-4xl font-bold tracking-tight">$1,240,000.00</h3>
+                    <div class="mt-6 flex gap-4">
+                        <div class="text-sm bg-white/10 px-3 py-1 rounded backdrop-blur-sm"
+                            style="background-color: rgba(255,255,255,0.1); padding: 0.25rem 0.75rem; border-radius: 0.25rem;">
+                            Account: **** 8829</div>
+                        <div class="text-sm bg-white/10 px-3 py-1 rounded backdrop-blur-sm"
+                            style="background-color: rgba(255,255,255,0.1); padding: 0.25rem 0.75rem; border-radius: 0.25rem;">
+                            Status: Active</div>
+                    </div>
+                </div>
+
+                <div class="grid lg:grid-cols-3">
+                    <!-- Transfer Form -->
+                    <div class="lg:col-span-2 bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+                        <h3 class="text-lg font-bold text-gray-800 mb-6 flex items-center gap-2">
+                            <span
+                                class="w-8 h-8 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center text-sm"
+                                style="width: 2rem; height: 2rem; display: flex; align-items: center; justify-content: center; background-color: var(--blue-50); color: var(--blue-600); border-radius: 9999px; margin-right: 0.5rem;">1</span>
+                            Beneficiary Details
+                        </h3>
+
+                        <form id="transferForm" onsubmit="handleTransfer(event)">
+                            <div class="form-grid mb-6">
+                                <div class="col-span-2">
+                                    <label>Beneficiary Account Number</label>
+                                    <input type="text" id="beneficiary_account" placeholder="e.g., 1234567890" required>
+                                </div>
+                                <div>
+                                    <label>Amount</label>
+                                    <input type="number" id="amount" placeholder="e.g., 5000.00" step="0.01" required>
+                                </div>
+                                <div>
+                                    <label>Currency</label>
+                                    <input type="text" id="currency" value="INR" readonly
+                                        class="bg-gray-100 cursor-not-allowed">
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn-primary">
+                                Initiate Transfer
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Recent Activity -->
+                    <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+                        <h3 class="text-lg font-bold text-gray-800 mb-6">Recent Activity</h3>
+                        <div class="space-y-6" style="display: flex; flex-direction: column; gap: 1.5rem;">
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center gap-4">
+                                    <div class="h-10 w-10 rounded-full bg-red-50 text-red-600 flex items-center justify-center"
+                                        style="height: 2.5rem; width: 2.5rem; background-color: var(--red-50); color: var(--red-600); border-radius: 9999px; display: flex; align-items: center; justify-content: center;">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none"
+                                            viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <p class="font-medium text-gray-900">TechCorp Solutions</p>
+                                        <p class="text-xs text-gray-500">Today, 10:23 AM</p>
+                                    </div>
+                                </div>
+                                <span class="font-bold text-gray-900">-₹12,500.00</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center gap-4">
+                                    <div class="h-10 w-10 rounded-full bg-green-50 text-green-600 flex items-center justify-center"
+                                        style="height: 2.5rem; width: 2.5rem; background-color: var(--green-50); color: var(--green-600); border-radius: 9999px; display: flex; align-items: center; justify-content: center;">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none"
+                                            viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M5 10l7-7m0 0l7 7m-7-7v18" />
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <p class="font-medium text-gray-900">Global Ventures</p>
+                                        <p class="text-xs text-gray-500">Yesterday</p>
+                                    </div>
+                                </div>
+                                <span class="font-bold text-green-600">+₹45,000.00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- PIN Modal -->
+    <div id="pinModal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <div class="text-center mb-6">
+                <div class="w-16 h-16 bg-navy-50 rounded-full flex items-center justify-center mx-auto mb-4"
+                    style="width: 4rem; height: 4rem; background-color: #eff6ff; border-radius: 9999px; display: flex; align-items: center; justify-content: center; margin-left: auto; margin-right: auto;">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon-xl text-navy-900" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-navy-900">Confirm Transaction</h3>
+                <p class="text-gray-500 text-sm mt-2">Enter your 6-digit PIN to authorize this transfer.</p>
+            </div>
+
+            <div class="mb-6">
+                <input type="password" id="transaction_pin" class="text-center"
+                    style="letter-spacing: 0.25em; font-size: 1.25rem;" placeholder="••••••" maxlength="6">
+            </div>
+
+            <div class="flex gap-3">
+                <button onclick="closePinModal()" class="btn-secondary">Cancel</button>
+                <button onclick="submitPin()" id="confirmBtn" class="btn-primary">Confirm</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="modal-overlay hidden">
+        <div class="modal-content text-center">
+            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6"
+                style="width: 4rem; height: 4rem; background-color: var(--green-50); border-radius: 9999px; display: flex; align-items: center; justify-content: center; margin-left: auto; margin-right: auto;">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon-xl text-green-600" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-2">Transfer Successful</h3>
+            <p class="text-gray-500 mb-6">Your transaction has been processed successfully.<br>Reference ID: #TRX-882910
+            </p>
+            <button onclick="resetTransferForm()" id="newTransferBtn" class="btn-primary">Make Another Transfer</button>
+        </div>
+    </div>
+
+    <script>
+        function handleLogin(event) {
+            event.preventDefault();
+            const btn = document.getElementById('loginBtn');
+            const originalText = btn.innerHTML;
+
+            btn.innerHTML = '<svg class="icon animate-spin" style="animation: spin 1s linear infinite;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Signing In...';
+            btn.disabled = true;
+
+            setTimeout(() => {
+                document.getElementById('loginScreen').classList.add('hidden');
+                document.getElementById('dashboardScreen').classList.remove('hidden');
+                document.getElementById('dashboardScreen').classList.add('flex');
+            }, 300); // Reduced from 1000ms
+        }
+
+        function handleTransfer(event) {
+            event.preventDefault();
+            // Show PIN Modal
+            const modal = document.getElementById('pinModal');
+            modal.classList.remove('hidden');
+            document.getElementById('transaction_pin').value = '';
+            setTimeout(() => document.getElementById('transaction_pin').focus(), 50);
+        }
+
+        function closePinModal() {
+            const modal = document.getElementById('pinModal');
+            btn.disabled = true;
+
+            setTimeout(() => {
+                closePinModal();
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+
+                const successModal = document.getElementById('successModal');
+                successModal.classList.remove('hidden');
+            }, 500); // Reduced from 1500ms
+        }
+
+        function resetTransferForm() {
+            // Hide Success Modal
+            const successModal = document.getElementById('successModal');
+            successModal.classList.add('hidden');
+
+            // Clear Form Fields
+            document.getElementById('beneficiary_account').value = '';
+            document.getElementById('amount').value = '';
+            // Currency stays INR
+
+            // Focus on first field
+            document.getElementById('beneficiary_account').focus();
+        }
+    </script>
+</body>
+
+</html>

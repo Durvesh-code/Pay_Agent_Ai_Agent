@@ -1,0 +1,17 @@
+# Secrets
+.env
+.venv/
+__pycache__/
+*.pyc
+
+# Docker
+.docker/
+
+# Node
+node_modules/
+frontend/node_modules/
+frontend/dist/
+
+# OS
+.DS_Store
+Thumbs.db

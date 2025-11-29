@@ -1,0 +1,71 @@
+<!-- static/bank_portal.html -->
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Bank Portal</title>
+</head>
+
+<body>
+    <h1>Bank Portal - Pending Invoices</h1>
+    <div id="list"></div>
+
+    <script>
+        async function fetchPending() {
+            const res = await fetch('/api/invoices/pending');
+            const items = await res.json();
+            const container = document.getElementById('list');
+            container.innerHTML = '';
+            items.forEach(inv => {
+                const div = document.createElement('div');
+                div.style.border = '1px solid #ccc';
+                div.style.padding = '8px';
+                div.style.margin = '8px';
+                div.innerHTML = `<b>${inv.id}</b> - ${inv.filename} - state: ${inv.state} - amount: ${inv.amount || 0}
+        <br><button onclick="approve('${inv.id}')">Approve</button>
+        <button onclick="openInvoice('${inv.id}')">Open</button>`;
+                container.appendChild(div);
+            });
+        }
+        async function approve(id) {
+            const body = { mode: 'single', amount: prompt('Enter amount to charge', '0') || 0 }
+            const res = await fetch(`/api/invoices/${id}/approve`, {
+                method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body)
+            });
+            const data = await res.json();
+            // call mock bank pay endpoint
+            const payRes = await fetch('/api/mockbank/pay', {
+                method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ invoice_id: id })
+            });
+            const payData = await payRes.json();
+            alert('Payment step: ' + JSON.stringify(payData));
+            if (payData.status === 'pin_required') {
+                const pin = prompt('Enter PIN (use 1234 for demo)');
+                const pinRes = await fetch('/api/mockbank/pin', {
+                    method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ invoice_id: id, pin })
+                });
+                const pinData = await pinRes.json();
+                if (pinData.redirect_url) {
+                    window.location.href = pinData.redirect_url;
+                } else {
+                    alert('Completed');
+                }
+            } else if (payData.status === 'completed' || payData.status === 'paid') {
+                alert('Payment completed');
+            }
+            fetchPending();
+        }
+
+        async function openInvoice(id) {
+            const res = await fetch(`/api/invoices/${id}`);
+            const inv = await res.json();
+            alert(JSON.stringify(inv, null, 2));
+        }
+
+        fetchPending();
+        setInterval(fetchPending, 3000);
+    </script>
+</body>
+
+</html>
