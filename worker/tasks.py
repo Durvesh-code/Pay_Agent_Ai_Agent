@@ -12,11 +12,8 @@ import redis
 redis_url = os.getenv("REDIS_URL", "redis://localhost:6379/0")
 celery_app = Celery("worker", broker=redis_url, backend=redis_url)
 
-print("DEBUG: Loading worker.tasks module...")
-
 gemini_processor = GeminiProcessor()
 
-print("DEBUG: Defining process_invoice task...")
 @celery_app.task(name="worker.tasks.process_invoice")
 def process_invoice(file_path: str, invoice_id: str, user_id: str):
     print(f"Processing invoice {invoice_id} for user {user_id} at {file_path}")

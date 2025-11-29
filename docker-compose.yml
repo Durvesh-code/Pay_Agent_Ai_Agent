@@ -23,7 +23,7 @@ services:
 
   worker:
     build: .
-    command: celery -A worker.tasks worker --loglevel=info --concurrency=1
+    command: celery -A worker.tasks:celery_app worker --loglevel=info --concurrency=1
     volumes:
       - .:/app
       - ./static:/app/static
@@ -35,7 +35,9 @@ services:
       - REDIS_URL=redis://redis:6379/0
       - OPENROUTER_API_KEY=${OPENROUTER_API_KEY}
       - GOOGLE_API_KEY=${GOOGLE_API_KEY}
+      - GOOGLE_API_KEY=${GOOGLE_API_KEY}
       - MOCK_BANK_URL=http://mock-bank:80
+      - PYTHONPATH=/app
     depends_on:
       - db
       - redis

@@ -1,4 +1,0 @@
-Vendor: Test Corp
-Amount: 1500
-Account: 1234567890
-IFSC: HDFC0001234
